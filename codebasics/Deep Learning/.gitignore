@@ -1,3 +1,6 @@
 datasets
 .ipynb_checkpoints
 serving
+saved_model
+tflite_model.tflite
+tflite_model_quant.tflite
