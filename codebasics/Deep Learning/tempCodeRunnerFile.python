@@ -1,0 +1,26 @@
+list = []
+
+
+def check_validity(check_string):
+    for character in check_string:
+        if character in ["(", "{", "["]: # opening bhaye push
+            list.append(character)
+        elif character in [")", "}", "]"]: # closing bhaye pop and check with top
+            if list:
+                top = list.pop()
+                if (
+                    (character == ")" and top != "(")
+                    or (character == "}" and top != "{")
+                    or (character == "]" and top != "[")
+                ):
+                    return False
+            else:
+                return False
+    return len(list) == 0 # last ma list empty bhaye balla valid
+
+
+expression = "[((())[()])]"
+inv_check = "[((())[()])]["
+
+print(f" Validity of String: {check_validity(expression)}")
+print(f" Validity of String: {check_validity(inv_check)}")
