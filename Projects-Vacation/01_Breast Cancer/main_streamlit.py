@@ -1,8 +1,6 @@
 import streamlit as st
 import pickle as pkl
 import numpy as np
-import os
-from PIL import Image
 try:
     model = pkl.load(open('model.pkl', 'rb'))
 except FileNotFoundError:
@@ -10,8 +8,6 @@ except FileNotFoundError:
     st.stop()
 
 st.title("Breast Cancer Prediction")
-img=Image.open(os.path.join('static', 'image_1.jpeg'))
-st.image(img, caption="Breast Cancer")
 st.write("This app predicts whether a breast cancer tumor is malignant or benign.")
 st.write("Please enter the features of the tumor below:")
 st.write("Note: Features should be separated by commas.")
